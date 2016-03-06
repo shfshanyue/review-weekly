@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>margin layout</title>
+    <style>
+    body {
+        margin: 0;
+    }
+
+    .header,
+    .footer {
+        height: 50px;
+        background-color: #ccc;
+    }
+
+    .container {
+        min-width: 200px;
+        padding: 0 300px 0 200px;
+        overflow: hidden;
+    }
+
+    .main {
+        float: left;
+        width: 100%;
+        background-color: #888;
+    }
+
+    .left {
+        position: relative;
+        left: -200px;
+        float: left;
+        width: 200px;
+        margin-left: -100%;
+        background-color: #c2c2c2;
+    }
+
+    .right {
+        float: left;
+        width: 300px;
+        margin-right: -300px;
+        background-color: #999;
+    }
+    </style>
+</head>
+<body>
+    <div class="header"></div>
+    <div class="container">
+        <div class="main">
+            <p>hello, world</p>
+            <p>hello, world</p>
+            <p>hello, world</p>
+            <p>hello, world</p>
+            <p>hello, world</p>
+            <p>hello, world</p>
+            <p>hello, world</p>
+            <p>hello, world</p>
+            <p>hello, world</p>
+            <p>hello, world</p>
+        </div>
+        <div class="left">
+            <p>hello, world</p>
+            <p>hello, world</p>
+            <p>hello, world</p>
+            <p>hello, world</p>
+            <p>hello, world</p>
+        </div>
+        <div class="right">
+            <p>hello, world</p>
+            <p>hello, world</p>
+            <p>hello, world</p>
+            <p>hello, world</p>
+            <p>hello, world</p>
+            <p>hello, world</p>
+            <p>hello, world</p>
+            <p>hello, world</p>
+            <p>hello, world</p>
+            <p>hello, world</p>
+            <p>hello, world</p>
+            <p>hello, world</p>
+            <p>hello, world</p>
+        </div>
+    </div>
+    <div class="footer"></div>
+</body>
+</html>

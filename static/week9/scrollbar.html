@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>scroll bar</title>
+    <style>
+    * {
+        box-sizing: border-box;
+    }
+
+    p {
+        text-indent: 2em;
+    }
+
+    ::-webkit-scrollbar {
+        width:17px;
+    }
+
+    .box {
+        position: relative;
+        width: 300px;
+        margin: 30px auto;
+        background-color: #cfc;
+        overflow: hidden;
+    }
+
+    .content {
+        width: 317px;
+        height: 500px;
+        padding: 17px;
+        line-height: 1.5;
+        overflow: auto;
+    }
+
+    .bar-wrap {
+        position: absolute;
+        right: 0;
+        height: 100%;
+        width: 6px;
+        background-color: rgba(0, 0, 0, .1);
+        border-radius: 3px;
+    }
+
+    .bar {
+        position: absolute;
+        width: 100%;
+        background-color: rgba(0, 0, 0, .3);
+        border-radius: 3px;
+    }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="bar-wrap">
+            <div class="bar"></div>
+        </div>
+        <div class="content">
+            <p>恕我免去客套。</p>
+            <p>这封信是在你去买可乐的时候写的。给凳子邻座的人写信，在我还是初次。但不这样做，似乎很难把我想说的传达给你。因为无论我说什么你几乎都听不进去，是吧？</p>
+            <p>嗯，你可知道？今天你做了一件十分使我伤心的事：你甚至没有注意到我发型的变化吧？我辛辛苦苦地一点点把头发留长，好不容易在上周末把发型变得像个女孩儿模样，可你连这点都未察觉吧？我自以为十分可爱，加之久未见面，本想吓你一跳，然而你根本无动于衷，这岂不太跟人过不去？反正你现在恐怕连我穿什么衣服都记不起来了。我也是个女孩儿！你就是再有心事要想，也该多少该正眼看我一下才是。只消说上一句“好可爱的发型”，往下无论你做什么，哪怕再心事重重，我都会原谅你。</p>
+            <p>所以，我现在向你说谎，什么要同姐姐在银座会面，全是谎话。本来我打算今天住在你那里，睡衣都带在身上。是的，挎包里装有睡衣和牙具。哈哈哈，傻瓜似的。但你偏偏不肯邀我去你住处。不过也好，既然你不把我放在心上而似乎乐得一人孤独，那么就让你孤独去，去绞尽脑汁想各种事情，想个彻底！</p>
+            <p>嗯，你可知道？今天你做了一件十分使我伤心的事：你甚至没有注意到我发型的变化吧？我辛辛苦苦地一点点把头发留长，好不容易在上周末把发型变得像个女孩儿模样，可你连这点都未察觉吧？我自以为十分可爱，加之久未见面，本想吓你一跳，然而你根本无动于衷，这岂不太跟人过不去？反正你现在恐怕连我穿什么衣服都记不起来了。我也是个女孩儿！你就是再有心事要想，也该多少该正眼看我一下才是。只消说上一句“好可爱的发型”，往下无论你做什么，哪怕再心事重重，我都会原谅你。</p>
+            <p>所以，我现在向你说谎，什么要同姐姐在银座会面，全是谎话。本来我打算今天住在你那里，睡衣都带在身上。是的，挎包里装有睡衣和牙具。哈哈哈，傻瓜似的。但你偏偏不肯邀我去你住处。不过也好，既然你不把我放在心上而似乎乐得一人孤独，那么就让你孤独去，去绞尽脑汁想各种事情，想个彻底！</p>
+            <p>不过这也并非说我对你有多么恼火。我仅仅是感到寂寞。因为你对我没少热情关照，而我却一次也没为你效力。你总是蜷缩在你自己的世界里，而我却一个劲儿“咚咚”敲门，一个劲儿叫你。于是你悄悄抬一下眼皮，又即刻恢复原状。</p>
+            <p>现在你手拿可乐回来了，一副边走边沉思的样子，我恨不得你跌一跤才解气，可你并未跌跤。你正坐在旁边，“咕嘟咕嘟”喝可乐。买可乐回来时，我还期待你注意到我的发型，说上一句“嗬，发型变了嘛”，结果还是落空了。假如你注意到，我会把这封信撕得粉碎，说：“喂，去你那里好了，给你做一顿香喷喷的晚饭，然后和和气气地一起睡觉。”但你俨然一块铁板似的麻木不仁。再见。</p>
+            <p><b>附记：下次在教室见面不要打招呼。</b></p>
+        </div>
+    </div>
+    <script>
+    var content = document.getElementsByClassName('content')[0];
+    var box = document.getElementsByClassName('box')[0];
+    var bar = document.getElementsByClassName('bar')[0];
+
+    var adjustBar = function() {
+        if (content.clientHeight === content.scrollHeight) {
+            bar.style.display = 'none';
+        } else {
+            bar.style.height = content.clientHeight * content.clientHeight / content.scrollHeight + 'px';
+        }
+    }
+    
+    adjustBar();
+    
+    content.addEventListener('scroll', function(event) {
+        bar.style.top = content.scrollTop * content.clientHeight / content.scrollHeight + 'px';
+    });
+
+    window.addEventListener('resize', function(event) {
+        adjustBar();
+    });
+
+    </script>
+</body>
+</html>
+
+
