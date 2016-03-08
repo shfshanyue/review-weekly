@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <h1>关于路由参数省略的问题。</h1>
+    <div>
+        <a v-link="{path: '/list'}">list</a>
+        <a v-link="{name: 'list', query: {id: 1}}">list 1</a>
+    </div>
+    <router-view></router-view>
+    <template id="demo">
+    id: {{ $route.query.id}}
+    </template>
+    <script src="http://cdn.bootcss.com/vue/1.0.15/vue.min.js"></script>
+    <script src="http://cdn.bootcss.com/vue-router/0.7.10/vue-router.min.js"></script>
+    <script>
+    var router = new VueRouter();
+    router.map({
+        '/list': {
+            name: 'list',
+            component: {
+                template: '#demo'
+            }
+        }
+    });
+    router.start(Vue.extend(), 'body');
+    </script>
+</body>
+</html>
