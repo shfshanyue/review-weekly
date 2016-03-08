@@ -18,22 +18,21 @@
 
     .container {
         display: flex;
-        flex-direction: row;
-        flex-grow: 1;
+        flex: 1;
     }
 
     .left {
-        width: 200px;
+        flex: 0 0 200px;
         background-color: #c2c2c2;
     }
 
     .right {
-        width: 300px;
+        flex: 0 0 300px;
         background-color: #999;
     }
 
     .main {
-        flex-grow: 1;
+        flex: 1 0 200px;
         background-color: #888;
     }
     </style>
