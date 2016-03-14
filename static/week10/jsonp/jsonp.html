@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jsonp</title>
+</head>
+<body>
+    <p>this is a jsonp test.</p>
+    <script>
+    'use strict'    
+    const JSONP = (url, {data, success}) => {
+        let script = document.createElement('script');
+        let callback = `_callback${Math.random()}`.replace('.', '');
+        let queryStrings = Object.getOwnPropertyNames(data).map(key => `${key}=${encodeURIComponent(data[key])}`).join('&').concat(`&callback=${callback}`);
+
+        script.src = url + '?' + queryStrings;
+        document.body.appendChild(script);
+        window[callback] = (data) => {
+            success(data);
+            window[callback] = null;
+            document.body.removeChild(script);
+        }
+    }
+
+    JSONP('http://localhost:5000', {
+        data: {
+            id: 3
+        },
+        success (data) {
+            console.log('hello, wrold')
+            console.log(data);
+        }
+    })
+    </script>
+</body>
+</html>

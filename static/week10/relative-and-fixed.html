@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>relative + fixed</title>
+    <style>
+    body {
+        height: 3000px;
+    }
+
+    .demo {
+        height: 50px;
+        line-height: 50px;
+        background-color: #fec;
+    }
+
+    .demo.sticky {
+        position: fixed;
+        top: 10px;
+        width: 100%;
+    }
+    </style>
+</head>
+<body>
+    <pre>
+    var demo = document.getElementsByClassName('demo')[0];
+    window.addEventListener('scroll', function(event) {
+        if (window.scrollY > 10) {
+            demo.classList.add('sticky');
+        } else {
+            demo.classList.remove('sticky');
+        }
+    });
+    </pre>
+    <div class="demo">当我滚动到首部时，将不会发生变动。</div>
+    <script>
+    var demo = document.getElementsByClassName('demo')[0];
+    var offset = demo.offsetTop;
+    window.addEventListener('scroll', function(event) {
+        if (window.scrollY > offset - 10) {
+            demo.classList.add('sticky');
+        } else {
+            demo.classList.remove('sticky');
+        }
+    });
+    </script>
+</body>
+</html>
