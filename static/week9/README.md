@@ -43,12 +43,12 @@
     在同一个BFC中，相邻的块状
     元素会发生折叠。两个margin值都是正值，取最大值，都是负值，取最小值，一正一负则相加。那么如题有三个呢，是从父元素往子元素算起，还是子元素往外算起？如果从外往里算，是0，从内往外算是-10px。经测试，是从内往外计算。
 
-    [live demo](http://shfshanyue.applinzi.com/week9/margin-compute.html)
+    [多边距折叠 demo](http://shfshanyue.applinzi.com/week9/margin-compute.html)
 1. 同一个BFC中，相邻的块状元素都是垂直放置吗？
 
     不一定，设置`writing-mode`值。查看以下Demo。
 
-    [live demo](http://shfshanyue.applinzi.com/week9/margin-horizontal.html)
+    [水平折叠的外边距 demo](http://shfshanyue.applinzi.com/week9/margin-horizontal.html)
 2. 如何清除浮动？根据什么原理？
     + 紧挨的块级元素设置`clear both`来清除浮动，一般 会通过`:after`清除浮动。如Bootstrap的`clearfix`。
         ``` css
@@ -60,12 +60,12 @@
         ```
     + 使父级元素触发一个新的BFC，如`overfow:hidden`或者`display:table`。
 
-    [live demo](http://shfshanyue.applinzi.com/week9/clear.html)
+    [清除浮动 demo](http://shfshanyue.applinzi.com/week9/clear.html)
 3. 如何对左侧栏200px，主内容自适应进行布局？ 
 
     左栏设置200px的宽，设置浮动，主内容设置`overflow:hidden`触发一个BFC。因为BFC不会与浮动折叠，所以右侧会自适应。
 
-    [live demo](http://shfshanyue.applinzi.com/week9/two-column.html)
+    [左固定右自适应布局 demo](http://shfshanyue.applinzi.com/week9/two-column.html)
 4. 如何使用margin完成圣杯布局（左侧x px，右侧y px，中间自适应），用flex呢？
 
     圣杯布局大致结构如下
@@ -87,6 +87,8 @@
 
     另外有flex布局就简单多了。需要注意的是使用margin会把.main放在最前边。而flex可以按照.left，.main，.right的顺序放置。另外flex布局也不会出现中间挤掉两边的情况。
 
-    [margin demo1](http://shfshanyue.applinzi.com/week9/shengbei1.html)
-    [margin demo2](http://shfshanyue.applinzi.com/week9/shengbei2.html)
-    [flex demo](http://shfshanyue.applinzi.com/week9/flex.html)
+    [圣杯布局 demo1](http://shfshanyue.applinzi.com/week9/shengbei1.html)
+
+    [圣杯布局 demo2](http://shfshanyue.applinzi.com/week9/shengbei2.html)
+
+    [flex完成圣杯布局 demo](http://shfshanyue.applinzi.com/week9/flex.html)
